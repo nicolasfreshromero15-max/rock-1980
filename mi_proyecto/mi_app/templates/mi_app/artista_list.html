@@ -1,0 +1,26 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Lista de Artistas - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>Músicos del Rock Nacional</h1>
+    
+    <!-- Enlace para ir al formulario de creación (Punto 5 del CRUD) -->
+    <a href="{% url 'artista_create' %}">➕ Agregar nuevo artista</a>
+
+    <ul>
+        <!-- Bucle para recorrer la lista de artistas que envía la vista -->
+        {% for artista in artistas %}
+            <li>
+                <strong>{{ artista.nombre }}</strong> - {{ artista.genero_principal }} 
+                (Bandas: {{ artista.bandas_donde_participo }})
+                
+                <!-- Enlaces para Editar y Borrar (CRUD) -->
+                | <a href="{% url 'artista_update' artista.id %}">✏️ Editar</a>
+                | <a href="{% url 'artista_delete' artista.id %}">🗑️ Borrar</a>
+            </li>
+        {% empty %}
+            <li>No hay artistas registrados todavía. ¡Sé el primero en agregar uno!</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
