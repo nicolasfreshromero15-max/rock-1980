@@ -78,13 +78,13 @@ class CancionListView(ListView):
 class CancionCreateView(CreateView):
     model = Cancion
     template_name = 'mi_app/cancion_form.html'
-    fields = ['titulo', 'anio_lanzamiento']
+    fields = ['titulo', 'fecha_lanzamiento']
     success_url = reverse_lazy('cancion_list')
 
 class CancionUpdateView(UpdateView):
     model = Cancion
     template_name = 'mi_app/cancion_form.html'
-    fields = ['titulo', 'anio_lanzamiento']
+    fields = ['titulo', 'fecha_lanzamiento']
     success_url = reverse_lazy('cancion_list')
 
 class CancionDeleteView(DeleteView):

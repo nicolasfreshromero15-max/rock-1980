@@ -10,7 +10,7 @@
     <ul>
         {% for cancion in canciones %}
             <li>
-                <strong>"{{ cancion.titulo }}"</strong> (Año: {{ cancion.anio_lanzamiento }})
+                <strong>"{{ cancion.titulo }}"</strong> (Año: {{ cancion.fecha_lanzamiento }})
                 
                 | <a href="{% url 'cancion_update' cancion.id %}">✏️ Editar</a>
                 | <a href="{% url 'cancion_delete' cancion.id %}">🗑️ Borrar</a>

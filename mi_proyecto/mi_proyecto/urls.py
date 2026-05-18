@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from mi_app.views import HomeView
-from mi_proyecto.mi_app.views import (RegisterView,
+from mi_app.views import (RegisterView,
 ArtistaListView, ArtistaCreateView, ArtistaUpdateView, 
  ArtistaDeleteView, BandaListView, BandaCreateView, BandaUpdateView, BandaDeleteView,
 CancionListView, CancionCreateView, CancionUpdateView, CancionDeleteView
