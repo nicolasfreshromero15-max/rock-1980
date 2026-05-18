@@ -1,0 +1,14 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Formulario de Banda{% endblock %}
+
+{% block content %}
+    <h1>Guardar Banda</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">💾 Guardar Banda</button>
+    </form>
+    <br>
+    <a href="{% url 'banda_list' %}">Volver al listado</a>
+{% endblock %}

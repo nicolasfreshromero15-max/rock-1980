@@ -1,0 +1,22 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Lista de Canciones - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>Canciones Icónicas</h1>
+    
+    <a href="{% url 'cancion_create' %}">➕ Agregar nueva canción</a>
+
+    <ul>
+        {% for cancion in canciones %}
+            <li>
+                <strong>"{{ cancion.titulo }}"</strong> (Año: {{ cancion.anio_lanzamiento }})
+                
+                | <a href="{% url 'cancion_update' cancion.id %}">✏️ Editar</a>
+                | <a href="{% url 'cancion_delete' cancion.id %}">🗑️ Borrar</a>
+            </li>
+        {% empty %}
+            <li>No hay canciones registradas todavía.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Formulario de Canción{% endblock %}
+
+{% block content %}
+    <h1>Guardar Canción</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">💾 Guardar Canción</button>
+    </form>
+    <br>
+    <a href="{% url 'cancion_list' %}">Volver al listado</a>
+{% endblock %}

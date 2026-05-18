@@ -1,0 +1,22 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Lista de Bandas - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>Bandas de Rock Nacional</h1>
+    
+    <a href="{% url 'banda_create' %}">➕ Agregar nueva banda</a>
+
+    <ul>
+        {% for banda in bandas %}
+            <li>
+                <strong>{{ banda.nombre }}</strong> - Género: {{ banda.genero_principal }}
+                
+                | <a href="{% url 'banda_update' banda.id %}">✏️ Editar</a>
+                | <a href="{% url 'banda_delete' banda.id %}">🗑️ Borrar</a>
+            </li>
+        {% empty %}
+            <li>No hay bandas registradas todavía.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
