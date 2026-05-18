@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from mi_app.views import HomeView
 from mi_proyecto.mi_app.views import (
 ArtistaListView, ArtistaCreateView, ArtistaUpdateView, 
  ArtistaDeleteView, BandaListView, BandaCreateView, BandaUpdateView, BandaDeleteView,
@@ -24,6 +24,7 @@ CancionListView, CancionCreateView, CancionUpdateView, CancionDeleteView
 )
 
 urlpatterns = [
+    path ('', HomeView.as_view(), name='home'), 
     path('admin/', admin.site.urls),
     # Artistas
     path('artistas/', ArtistaListView.as_view(), name='artista_list'),

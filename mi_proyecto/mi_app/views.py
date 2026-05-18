@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Artista, Banda, Cancion
+from django.views.generic import TemplateView
+
+class HomeView(TemplateView):
+    template_name = 'mi_app/home.html'
 
 # === CRUD ARTISTA ===
 class ArtistaListView(ListView):

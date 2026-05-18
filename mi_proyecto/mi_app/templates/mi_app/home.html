@@ -1,0 +1,20 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Inicio - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>🎸 Bienvenidos al Proyecto de Rock Nacional</h1>
+    <p>Este sitio web es un catálogo interactivo diseñado para recopilar y administrar información sobre los artistas, bandas y canciones más influyentes de nuestra música.</p>
+    
+    <hr>
+
+    <h2>ℹ️ Acerca de este proyecto</h2>
+    <p>Desarrollado como parte de la entrega final de el curso de programación especializado en python de CoderHouse. El sistema permite realizar operaciones CRUD completas para mantener actualizada la base de datos del rock nacional.</p>
+    
+    <h3>🚀 Secciones disponibles:</h3>
+    <ul>
+        <li><a href="{% url 'artista_list' %}">👤 Administrar Artistas</a></li>
+        <li><a href="{% url 'banda_list' %}">👥 Administrar Bandas</a></li>
+        <li><a href="{% url 'cancion_list' %}">🎵 Administrar Canciones</a></li>
+    </ul>
+{% endblock %}
