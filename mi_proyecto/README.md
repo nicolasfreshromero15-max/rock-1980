@@ -17,9 +17,9 @@ El proyecto está organizado de la siguiente manera dentro de la aplicación pri
 
 * **Inicio (Home):** Vista basada en `TemplateView` que presenta la información general del proyecto y la sección "Acerca de".
 * **Modelos (CRUDs):** Secciones independientes para gestionar la base de datos:
-  * 👤 **Artistas:** `Persona` (Nombre, Apellido, Instrumento, Edad).
-  * 👥 **Bandas:** `Banda` (Nombre, Género, Año de formación).
-  * 🎵 **Canciones:** `Cancion` (Título, Álbum, Año de lanzamiento).
+  * 👤 **Artistas:** `Persona` (Nombre y Apellido, Genero y Banda donde estuvieron).
+  * 👥 **Bandas:** `Banda` (Nombre, Género,).
+  * 🎵 **Canciones:** `Cancion` (Título, Año de lanzamiento).
 * **Autenticación:** Sistema de usuarios ubicado en la carpeta de plantillas `registration/` (Registro, Login y Logout).
 
 ---
