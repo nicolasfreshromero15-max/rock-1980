@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mi_proyecto.mi_app.views import ArtistaListView, ArtistaCreateView, ArtistaUpdateView, ArtistaDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('artistas/', ArtistaListView.as_view(), name='artista_list'),
+    path('artistas/nuevo/', ArtistaCreateView.as_view(), name='artista_create'),
+    path('artistas/editar/<int:pk>/', ArtistaUpdateView.as_view(), name='artista_update'),
+    path('artistas/borrar/<int:pk>/', ArtistaDeleteView.as_view(), name='artista_delete'),
 ]
