@@ -1,4 +1,9 @@
 {% extends 'mi_app/base.html' %}
+<form method="GET" action="{% url 'artista_list' %}">
+    <input type="text" name="buscar" placeholder="Buscar artista por nombre..." value="{{ request.GET.buscar }}">
+    <button type="submit">🔍 Buscar</button>
+</form>
+<br>
 
 {% block title %}Lista de Artistas - Rock Nacional{% endblock %}
 

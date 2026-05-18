@@ -8,6 +8,16 @@ class ArtistaListView(ListView):
     model = Artista
     template_name = 'mi_app/artista_list.html'
     context_object_name = 'artistas'
+    def get_queryset(self):
+        # 1. Tomamos lo que el usuario escribió en la barra de búsqueda
+        query = self.request.GET.get('buscar')
+        
+        # 2. Si el usuario escribió algo, filtramos por nombre
+        if query:
+            return Artista.objects.filter(nombre__icontains=query)
+        
+        # 3. Si no buscó nada, devolvemos todos los artistas
+        return Artista.objects.all()
 
 class ArtistaCreateView(CreateView):
     model = Artista
