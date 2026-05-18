@@ -17,12 +17,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mi_proyecto.mi_app.views import ArtistaListView, ArtistaCreateView, ArtistaUpdateView, ArtistaDeleteView
+from mi_proyecto.mi_app.views import (
+ArtistaListView, ArtistaCreateView, ArtistaUpdateView, 
+ ArtistaDeleteView, BandaListView, BandaCreateView, BandaUpdateView, BandaDeleteView,
+CancionListView, CancionCreateView, CancionUpdateView, CancionDeleteView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Artistas
     path('artistas/', ArtistaListView.as_view(), name='artista_list'),
     path('artistas/nuevo/', ArtistaCreateView.as_view(), name='artista_create'),
     path('artistas/editar/<int:pk>/', ArtistaUpdateView.as_view(), name='artista_update'),
     path('artistas/borrar/<int:pk>/', ArtistaDeleteView.as_view(), name='artista_delete'),
+    # Bandas
+    path('bandas/', BandaListView.as_view(), name='banda_list'),
+    path('bandas/nuevo/', BandaCreateView.as_view(), name='banda_create'),
+    path('bandas/editar/<int:pk>/', BandaUpdateView.as_view(), name='banda_update'),
+    path('bandas/borrar/<int:pk>/', BandaDeleteView.as_view(), name='banda_delete'),
+
+    # Canciones
+    path('canciones/', CancionListView.as_view(), name='cancion_list'),
+    path('canciones/nuevo/', CancionCreateView.as_view(), name='cancion_create'),
+    path('canciones/editar/<int:pk>/', CancionUpdateView.as_view(), name='cancion_update'),
+    path('canciones/borrar/<int:pk>/', CancionDeleteView.as_view(), name='cancion_delete'),
 ]

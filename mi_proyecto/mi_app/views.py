@@ -15,7 +15,7 @@ class ArtistaCreateView(CreateView):
     fields = ['nombre', 'bandas_donde_participo', 'genero_principal']
     success_url = reverse_lazy('artista_list')
     
-    class ArtistaUpdateView(UpdateView):
+class ArtistaUpdateView(UpdateView):
     model = Artista
     template_name = 'mi_app/artista_form.html'
     fields = ['nombre', 'bandas_donde_participo', 'genero_principal']
