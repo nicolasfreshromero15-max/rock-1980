@@ -7,13 +7,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="{% url 'artista_list' %}">🎸 Inicio</a> | 
-            <a href="#">👤 Artistas</a> |
-            <a href="#">🎵 Acerca de</a>
-        </nav>
+<nav>
+    <!-- Enlaces de navegación globales -->
+    <a href="{% url 'home' %}">🏠 Inicio</a> | 
+    <a href="{% url 'artista_list' %}">👤 Artistas</a> |
+    <a href="{% url 'banda_list' %}">👥 Bandas</a> |
+    <a href="{% url 'cancion_list' %}">🎵 Canciones</a>
+</nav>
     </header>
-
+    {% if user.is_authenticated %}
+        <span>👋 Hola, <strong>{{ user.username }}</strong>!</span> | 
+        <a href="{% url 'logout' %}">🚪 Cerrar Sesión</a>
+    {% else %}
+        <a href="{% url 'login' %}">🔑 Iniciar Sesión</a> | 
+        <a href="{% url 'register' %}">📝 Registrarse</a>
+    {% endif %}
+</nav>
     <main>
         {% block content %}
         {% endblock %}

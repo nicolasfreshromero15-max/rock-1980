@@ -1,0 +1,17 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Iniciar Sesión - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>🔑 Iniciar Sesión</h1>
+    <p>Ingresa tus credenciales para acceder al sistema.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">🔓 Entrar</button>
+    </form>
+
+    <br>
+    <p>¿No tienes cuenta todavía? <a href="{% url 'register' %}">Regístrate acá</a></p>
+{% endblock %}

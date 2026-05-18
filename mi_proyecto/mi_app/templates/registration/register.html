@@ -1,0 +1,18 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Registrarse - Rock Nacional{% endblock %}
+
+{% block content %}
+    <h1>📝 Crear Cuenta Nueva</h1>
+    <p>Completa el siguiente formulario para registrarte en el sistema.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Django renderiza los campos de usuario y contraseña automáticamente -->
+        {{ form.as_p }}
+        <button type="submit">🚀 Registrarse</button>
+    </form>
+
+    <br>
+    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a></p>
+{% endblock %}

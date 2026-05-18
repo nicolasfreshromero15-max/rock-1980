@@ -15,15 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path
 from mi_app.views import HomeView
-from mi_proyecto.mi_app.views import (
+from mi_proyecto.mi_app.views import (RegisterView,
 ArtistaListView, ArtistaCreateView, ArtistaUpdateView, 
  ArtistaDeleteView, BandaListView, BandaCreateView, BandaUpdateView, BandaDeleteView,
 CancionListView, CancionCreateView, CancionUpdateView, CancionDeleteView
 )
 
 urlpatterns = [
+    # Registro de usuarios
+    path('register/', RegisterView.as_view(), name='register'),
+    # Página de inicio
     path ('', HomeView.as_view(), name='home'), 
     path('admin/', admin.site.urls),
     # Artistas
@@ -42,4 +46,11 @@ urlpatterns = [
     path('canciones/nuevo/', CancionCreateView.as_view(), name='cancion_create'),
     path('canciones/editar/<int:pk>/', CancionUpdateView.as_view(), name='cancion_update'),
     path('canciones/borrar/<int:pk>/', CancionDeleteView.as_view(), name='cancion_delete'),
+
+    # Login (Inicio de sesión)
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+
+    # Logout (Cierre de sesión)
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
+
