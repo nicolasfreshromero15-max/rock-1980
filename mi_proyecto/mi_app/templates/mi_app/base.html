@@ -17,7 +17,12 @@
     </header>
     {% if user.is_authenticated %}
         <span>👋 Hola, <strong>{{ user.username }}</strong>!</span> | 
-        <a href="{% url 'logout' %}">🚪 Cerrar Sesión</a>
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" style="background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0;">
+            🚪 Cerrar Sesión
+        </button>
+    </form>
     {% else %}
         <a href="{% url 'login' %}">🔑 Iniciar Sesión</a> | 
         <a href="{% url 'register' %}">📝 Registrarse</a>
